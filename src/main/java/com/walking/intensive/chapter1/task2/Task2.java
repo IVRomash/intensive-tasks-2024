@@ -40,10 +40,10 @@ public class Task2 {
     }
 
     static String getFlatLocation(int floorAmount, int entranceAmount, int flatNumber) {
-        int flatAmount = floorAmount * entranceAmount * 4;
         if (floorAmount < 1 || entranceAmount < 1 || flatNumber < 1) {
             return "Некорректные входные данные";
         }
+        int flatAmount = floorAmount * entranceAmount * 4;
         if (flatAmount < flatNumber) {
             return "Такой квартиры не существует";
         }
@@ -51,15 +51,11 @@ public class Task2 {
         int floorNumber = 1 + ((flatNumber - 1) % (flatAmount / entranceAmount) / 4);
         String result = switch (flatNumber % 4) {
             case 0 -> " этаж, справа от лифта, вправо";
-
             case 1 -> " этаж, слева от лифта, влево";
-
             case 2 -> " этаж, слева от лифта, вправо";
-
             case 3 -> " этаж, справа от лифта, влево";
-
             default -> "Ошибка";
         };
-    return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + result;
+        return flatNumber + " кв - " + entranceNumber + " подъезд, " + floorNumber + result;
     }
 }
